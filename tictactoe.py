@@ -13,7 +13,7 @@ print("""
 ---------------------------------
 | Yapımcı : Beetlejuicetr (MID) |
 | Dil     : Python 3.9.7        |
-| Sürüm   : v1.0                |
+| Sürüm   : v1.1                |
 ---------------------------------
 
 
@@ -23,9 +23,11 @@ print("""
 slots="         "
 
 newslot = ""
-
+hamle_sayisi = 0
 while True:
-	
+	if hamle_sayisi == 9:
+		print("Berabere !")
+		break
 	birinciOyuncu = input("Birinci oyuncu (1-9) : ") # Birinci oyuncudan bir yer seçmesini istiyorum
 
 
@@ -43,6 +45,8 @@ while True:
 				if i == birinciOyuncu -1: # oyuncunun girdiği sayı mı değil mi? kontrol ediyorum
 					if slots[i] != "O" and slots[i] != "X": # oyuncunun sayısı her hangi bir işaretle çakışıyor mu?
 						newslot = newslot + "X" # Hiç bir karakterle çakışmıyorsa karakterimizi ekliyorum
+						hamle_sayisi += 1
+
 
 					# Seçimimiz başka bir karakterle çakışırsa gösterilecek mesaj
 					else:
@@ -113,6 +117,7 @@ while True:
 				if i == ikinciOyuncu -1:
 					if slots[i] != "X" and slots[i] != "O":
 						newslot = newslot + "O"
+						hamle_sayisi += 1
 					else:
 						print("\nBurası zaten dolu!")
 						print("Üzgünüm fakat artık sıran 1.oyuncuya geçti :/ \n")
